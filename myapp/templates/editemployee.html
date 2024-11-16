@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+    <form action="/updateemployee/{{data.empid}}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name ="empid" value="{{data.empid}}"/>
+        <input type="text" name ="ename" value="{{data.ename}}"/>
+        <input type="text" name ="desg" value="{{data.desg}}"/>
+        <input type="text" name ="salary" value="{{data.salary}}"/>
+         <input type="submit" value="update"/>
+
+        </form>
+        <a href="/viewemployee">View Employee</a>
+        <a href="/home">Home Page</a>
+{% endblock content %}
+
+      

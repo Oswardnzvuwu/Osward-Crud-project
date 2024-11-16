@@ -1,0 +1,13 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+   <form method="POST" action="">
+   {%csrf_token%} 
+   {{form}}
+   <input type="submit" value ="Signup"/>
+   </form>
+   <a href="{% url 'login'%}">i have already account </a>
+
+{% endblock content %}

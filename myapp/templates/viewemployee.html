@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+ 
+        <br>
+           <a href="{%url 'addemployee' %}" class="btn btn-primary">
+               <button class = "btn btn-primary">Add New Employee </button>
+            </a>
+           
+        <br>
+        <br>
+  
+    
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col" style="background-color: rgb(120, 183, 255);">Emp Id</th>
+                <th scope="col" style="background-color: rgb(120, 183, 255);">Emp Name</th>
+                <th scope="col" style="background-color: rgb(120, 183, 255);">Designation</th>
+                <th scope="col" style="background-color: rgb(120, 183, 255);">Salary</th>
+                <th scope="col" style="background-color: rgb(120, 183, 255);">Action</th>
+                <th scope="col" style="background-color: rgb(120, 183, 255);">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for employee in employees %}
+                <tr>
+                    <td>{{employee.empid}}</td>
+                    <td>{{employee.ename}}</td>
+                    <td>{{employee.desg}}</td>
+                    <td>{{employee.salary}}</td>
+                    <td><a href="{% url 'deleteemployee' employee.empid %}"> Delete </a></td>
+                    <td><a href="{% url 'editemployee' employee.empid %}"> Edit </a></td>
+                </tr>
+            {% endfor %}
+        </tbody>              
+    </table>
+{% endblock content %}
